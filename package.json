@@ -1,7 +1,7 @@
 {
-  "name": "web-boss",
+  "name": "web-worker-boss",
   "version": "1.0.0",
-  "description": "Communicate with your Web Workers like a boss.",
+  "description": "Communicate with your workers like a boss.",
   "main": "lib/boss.js",
   "scripts": {
     "server": "node server.js"

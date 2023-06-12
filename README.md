@@ -1,29 +1,29 @@
-# Web Boss
+# Web Worker Boss
 
-Web Boss is a lightweight library that provides a simple and intuitive socket-like API for sending and receiving messages between the main thread and the worker.
+Web Worker Boss is a lightweight library that provides a simple and intuitive socket-like API for sending and receiving messages between the main thread and the worker.
 
 ## Installation
 
-You can install Web Boss using npm or yarn:
+You can install Web Worker Boss using npm or yarn:
 
 ```bash
-npm install web-boss
+npm install web-worker-boss
 ```
 
 or
 
 ```bash
-yarn add web-boss
+yarn add web-worker-boss
 ```
 
 ## Usage
 
-To use Web Boss for bi-directional communication, follow these steps:
+To use Web Worker Boss for bi-directional communication, follow these steps:
 
-1. Import the Boss class from the web-boss package:
+1. Import the Boss class from the web-worker-boss package:
 
 ```javascript
-import Boss from 'web-boss';
+import Boss from 'web-worker-boss';
 ```
 
 2. In the main thread, create an instance of Boss, passing in the web worker object as a parameter:
@@ -46,10 +46,10 @@ boss.on('eventName', (payload) => {
 boss.emit('eventName', payload);
 ```
 
-5. In the web worker script, import the Boss class from the web-boss package. Make sure you are using webpack or Rollup to bundle the web worker script.
+5. In the web worker script, import the Boss class from the web-worker-boss package. Make sure you are using webpack or Rollup to bundle the web worker script.
 
 ```javascript
-import Boss from 'web-boss';
+import Boss from 'web-worker-boss';
 ```
 
 6. Create an instance of Boss in the web worker, passing in the self object as a parameter:
@@ -74,12 +74,12 @@ boss.emit('eventName', payload);
 
 ## Example
 
-Here's an example demonstrating the usage of Web Boss for bi-directional communication:
+Here's an example demonstrating the usage of Web Worker Boss for bi-directional communication:
 
 ### Main script:
 
 ```javascript
-import Boss from 'web-boss';
+import Boss from 'web-worker-boss';
 
 const worker = new Worker('worker.js');
 const boss = new Boss(worker);
@@ -94,7 +94,7 @@ boss.emit('ask', { question: 'How are you?' });
 ### Web worker script (worker.js):
 
 ```javascript
-import Boss from 'web-boss';
+import Boss from 'web-worker-boss';
 
 const boss = new Boss(self);
 
@@ -115,7 +115,7 @@ The web worker script creates an instance of Boss with self, which represents th
 
 Both the main script and the web worker script can communicate with each other using the emit and on methods of the Boss instance.
 
-## API
+## Web Worker Boss API
 
 ### `new Boss(worker: Worker)`
 
@@ -139,6 +139,6 @@ Emits an event to the web worker.
 
 ---
 
-That's it! You now have a better understanding of how to use the Web Boss library for bi-directional communication between the main thread and a web worker in your web applications. Feel free to explore more features and advanced usage in the library's documentation or by examining the source code.
+That's it! You now have a better understanding of how to use the Web Worker Boss library for bi-directional communication between the main thread and a web worker in your web applications. Feel free to explore more features and advanced usage in the library's documentation or by examining the source code.
 
 If you encounter any issues or have further questions, please don't hesitate to ask.
